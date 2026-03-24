@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carquarium | Elite Automotive Showroom</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Floating Navbar -->
+  <nav class="navbar drop-in" id="navbar">
+    <div class="nav-pill">
+      <a href="#" class="logo">
+        <img src="logo.JPG" alt="Carquarium" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Story</a></li>
+        <li><a href="#showroom">Showroom</a></li>
+        <li><a href="#pulse">The Pulse</a></li>
+        <li><a href="#concierge">Concierge</a></li>
+      </ul>
+      <a href="#concierge" class="btn btn-outline nav-cta">Book Viewing</a>
+
+      <button class="menu-btn" id="menu-btn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Dynamic Hero -->
+  <header class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="glow-orb red"></div>
+      <div class="glow-orb silver"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="hero-content container">
+      <div class="hero-text">
+        <div class="badge fade-up"><span class="dot"></span> Beverly Hills, CA</div>
+        <h1 class="fade-up delay-1">
+          <span class="outline-text">DRIVE</span><br />
+          THE<br />
+          <span class="gradient-text">EXCEPTIONAL.</span>
+        </h1>
+        <p class="fade-up delay-2">Unleashing 15 years of automotive excellence. We don't just sell cars; we curate
+          breathtaking performance and uncompromised luxury.</p>
+        <div class="hero-actions fade-up delay-3">
+          <a href="#showroom" class="btn btn-primary btn-lg">Explore Vehicles</a>
+          <a href="#concierge" class="btn btn-text">Speak to an Advisor &rarr;</a>
+        </div>
+      </div>
+
+      <div class="scroll-prompt fade-up delay-5">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+      </div>
+  </header>
+
+  <div class="brand-showcase section-dark">
+    <div class="container center-content">
+      <img src="logo.JPG" alt="Carquarium" class="showcase-logo" />
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="section about-story" id="about">
+    <div class="container about-grid">
+      <div class="about-visual reveal">
+        <div class="visual-gradient-box"></div>
+        <div class="visual-accent-line"></div>
+      </div>
+      <div class="about-content reveal">
+        <div class="badge">Our Story</div>
+        <h2>BEYOND<br />THE<br /><span class="gradient-text">MACHINE.</span></h2>
+        <p class="lead-text">Established in 2010 in the heart of Beverly Hills, Carquarium was born from a singular
+          obsession: to redefine the acquisition of elite automobiles.</p>
+        <p>We are more than a dealership. We are enthusiasts, curators, and matchmakers for the world's most
+          breathtaking engineering. Every vehicle in our stable represents the pinnacle of performance and design,
+          painstakingly inspected to meet our uncompromising standards.</p>
+        <div class="about-stats-row">
+          <div class="a-stat"><strong>2,800+</strong><br />Global Clients</div>
+          <div class="a-stat"><strong>40+</strong><br />Countries Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showroom (Bento Grid) -->
+  <section class="section showroom" id="showroom">
+    <div class="container">
+      <div class="section-header boxed reveal">
+        <div class="header-line"></div>
+        <h2 class="title-massive">THE<br />COLLECTION</h2>
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="exotic">Exotics</button>
+          <button class="filter-pill" data-filter="luxury">Luxury</button>
+        </div>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Featured Huge Card -->
+        <article class="bento-card hero-car exotic reveal">
+          <div class="card-bg"></div>
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <div class="car-tags">
+              <span class="tag hot">JUST IN</span>
+              <span class="tag">2023</span>
+            </div>
+            <div class="car-info">
+              <h3 class="car-brand">PORSCHE</h3>
+              <h4 class="car-model">911 GT3 RS</h4>
+              <div class="specs">
+                <span>518 HP</span> • <span>0-60 in 3.0s</span> • <span>9,000 RPM</span>
+              </div>
+              <div class="car-bottom">
+                <div class="price">$285,000</div>
+                <button class="btn btn-primary btn-icon">&rarr;</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Standard Cards -->
+        <article class="bento-card luxury reveal">
+          <div class="card-bg"></div>
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <div class="car-tags"><span class="tag">2022</span></div>
+            <div class="car-info">
+              <h3 class="car-brand">BENTLEY</h3>
+              <h4 class="car-model">Continental GT</h4>
+              <div class="car-bottom">
+                <div class="price">$205,000</div>
+                <button class="btn btn-outline btn-icon">+</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bento-card exotic reveal">
+          <div class="card-bg"></div>
+          <div class="card-gradient"></div>
+          <div class="card-content">
+            <div class="car-tags"><span class="tag">2021</span></div>
+            <div class="car-info">
+              <h3 class="car-brand">MCLAREN</h3>
+              <h4 class="car-model">720S Spider</h4>
+              <div class="car-bottom">
+                <div class="price">$299,500</div>
+                <button class="btn btn-outline btn-icon">+</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="center-btn reveal">
+        <a href="inventory.html" class="btn btn-outline btn-lg">View Full Inventory</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Pulse (Bento Features) -->
+  <section class="section pulse section-dark" id="pulse">
+    <div class="bg-typography">PULSE</div>
+    <div class="container">
+      <div class="bento-features">
+        <div class="feature-box primary reveal">
+          <div class="feat-icon">01</div>
+          <h3>Obsessive Curation</h3>
+          <p>We reject 90% of the vehicles offered to us. If it sits in the Carquarium showroom, it is mechanically
+            pure, cosmetically flawless, and carries an impeccable pedigree.</p>
+        </div>
+
+        <div class="feature-box secondary reveal">
+          <div class="feat-icon">02</div>
+          <h3>Global Delivery</h3>
+          <p>Enclosed, insured, white-glove transport to your driveway, anywhere on earth.</p>
+        </div>
+
+        <div class="feature-box secondary dark reveal">
+          <div class="feat-icon">03</div>
+          <h3>Tailored Finance</h3>
+          <p>Bespoke leasing and financing tailored for ultra-high-net-worth clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concierge (Contact Block) -->
+  <section class="section concierge" id="concierge">
+    <div class="container">
+      <div class="concierge-card reveal">
+        <div class="concierge-text">
+          <div class="badge">Concierge Service</div>
+          <h2>ACQUIRE YOUR<br /><span class="gradient-text">NEXT ICON.</span></h2>
+          <p>Our automotive advisors are on standby to discuss acquisitions, trade-ins, or to source the exact
+            specification you desire.</p>
+          <div class="contact-methods">
+            <div class="c-method">
+              <strong>CALL</strong><br />+1 (800) 555-EXOTIC
+            </div>
+            <div class="c-method">
+              <strong>VISIT</strong><br />Beverly Hills Showroom
+            </div>
+          </div>
+        </div>
+
+        <div class="concierge-form">
+          <form id="contactForm">
+            <div class="input-group">
+              <input type="text" id="name" required placeholder=" " />
+              <label for="name">Full Name</label>
+            </div>
+            <div class="input-group">
+              <input type="email" id="email" required placeholder=" " />
+              <label for="email">Email Address</label>
+            </div>
+            <div class="input-group">
+              <select id="interest" required>
+                <option value="" disabled selected>Area of Interest</option>
+                <option value="buy">Acquire a Vehicle</option>
+                <option value="sell">Sell/Trade my Vehicle</option>
+                <option value="source">Source a specific car</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Submit Inquiry <span
+                class="arrow">&rarr;</span></button>
+            <div id="formSuccess" class="form-status">Message received. We will contact you shortly.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <img src="logo.JPG" class="footer-logo" alt="Carquarium">
+        <p class="footer-desc">Premium used vehicles for the discerning driver. Elite performance, delivered worldwide.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="link-col">
+          <h4>Showroom</h4>
+          <a href="#">Latest Arrivals</a>
+          <a href="#">Exotics</a>
+          <a href="#">Luxury SUVs</a>
+        </div>
+        <div class="link-col">
+          <h4>Brand</h4>
+          <a href="#">Our Story</a>
+          <a href="#">Press</a>
+          <a href="#">Careers</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Carquarium. All rights reserved.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
