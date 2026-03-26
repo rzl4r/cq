@@ -177,60 +177,87 @@ ul {
   border-radius: 8px;
 }
 
-/* ——— FLOATING NAVBAR ——— */
+/* ——— DYNAMIC MAXIMIZING NAVBAR ——— */
 .navbar {
   position: fixed;
-  top: 2vw;
+  top: 1.5rem;
   left: 0;
   right: 0;
   z-index: 1000;
   display: flex;
   justify-content: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  /* Let clicks pass through the invisible full width */
+}
+
+.navbar.scrolled {
+  top: 0;
+  pointer-events: auto;
 }
 
 .nav-pill {
   pointer-events: auto;
-  /* Catch clicks on the pill */
-  display: flex;
-  align-items: center;
-  gap: 3vw;
+  width: 92%;
+  max-width: 1200px;
   background: rgba(10, 1, 1, 0.6);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--border-light);
-  padding: 8px 12px 8px 24px;
+  padding: 0.7rem 2.5rem;
   border-radius: 100px;
-  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar.scrolled .nav-pill {
-  background: rgba(5, 0, 0, 0.85);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  background: rgba(5, 0, 0, 0.92);
+  padding: 1rem 6vw;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .logo-img {
   height: 48px;
+  transition: height 0.4s ease;
   mix-blend-mode: screen;
   filter: contrast(1.1);
   display: block;
 }
 
+.navbar.scrolled .logo-img {
+  height: 44px;
+}
+
 .nav-links {
   display: flex;
-  gap: 2vw;
+  gap: 2.5vw;
 }
 
 .nav-links a {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--silver);
-  transition: color 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--font-display);
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
   color: var(--white);
+  text-shadow: 0 0 10px var(--red);
+}
+
+.nav-cta {
+  padding: 10px 24px;
+  font-size: 0.7rem;
 }
 
 .menu-btn {
