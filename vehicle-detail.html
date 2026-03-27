@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Details | Carquarium Elite Showroom</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="detail-page">
+
+  <!-- Dynamic Navbar -->
+  <nav class="navbar drop-in scrolled" id="navbar">
+    <div class="nav-pill">
+      <a href="index.html" class="logo">
+        <img src="logo.JPG" alt="Carquarium" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">Story</a></li>
+        <li><a href="inventory.html">Showroom</a></li>
+        <li><a href="index.html#pulse">The Pulse</a></li>
+        <li><a href="index.html#concierge">Concierge</a></li>
+      </ul>
+      <a href="index.html#concierge" class="btn btn-outline nav-cta">Book Viewing</a>
+      
+      <button class="menu-btn" id="menu-btn">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Vehicle Detail Hero -->
+  <header class="vehicle-hero" id="vehicleHero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-gradient"></div>
+    <div class="container hero-container">
+        <div class="back-link reveal"><a href="inventory.html">&larr; Back to Collection</a></div>
+        <div class="hero-text">
+            <div class="badge fade-up" id="vehicleTypeBadge">EXOTIC</div>
+            <h1 class="title-massive fade-up delay-1" id="vehicleFullName">PHANTOM<br/><span class="gradient-text">LOADING...</span></h1>
+            <div class="price-tag fade-up delay-2" id="vehiclePrice">$000,000</div>
+            <div class="hero-actions fade-up delay-3">
+                <button class="btn btn-primary btn-lg" id="detailWhatsApp">Instant Inquiry (WhatsApp)</button>
+                <a href="#specs" class="btn btn-text">View Specifications &darr;</a>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Spec Grid (Bento) -->
+  <section class="section specs-section" id="specs">
+    <div class="container">
+        <div class="section-header boxed reveal">
+            <h2 class="title-massive">PERFORMANCE<br/>PEDIGREE</h2>
+        </div>
+        
+        <div class="spec-grid">
+            <div class="spec-card reveal">
+                <div class="spec-val" id="specHP">---</div>
+                <div class="spec-label">HORSEPOWER</div>
+            </div>
+            <div class="spec-card reveal">
+                <div class="spec-val" id="specSpeed">---</div>
+                <div class="spec-label">TOP SPEED</div>
+            </div>
+            <div class="spec-card highlight reveal">
+                <div class="spec-val" id="specAccel">---</div>
+                <div class="spec-label">0-60 MPH</div>
+            </div>
+            <div class="spec-card reveal">
+                <div class="spec-val" id="specYear">---</div>
+                <div class="spec-label">MODEL YEAR</div>
+            </div>
+            <div class="spec-card reveal">
+                <div class="spec-val" id="specEng">---</div>
+                <div class="spec-label">ENGINE TYPE</div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Story / Feature Section -->
+  <section class="section vehicle-description section-dark">
+    <div class="container description-grid">
+        <div class="reveal">
+            <div class="badge">Vehicle Ethos</div>
+            <h2 id="descriptionTitle">UNMATCHED<br/><span class="gradient-text">PRESENCE.</span></h2>
+        </div>
+        <div class="reveal">
+            <p class="lead-text" id="descriptionLead">Precision engineering meets luxury design in this masterwork of automotive architecture.</p>
+            <p id="descriptionText">Loading complete vehicle profile...</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Features List (Bento Features style) -->
+  <section class="section features">
+    <div class="container">
+        <div class="bento-features" id="featureContainer">
+            <!-- Dynamic Features -->
+        </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section cta-section">
+      <div class="container">
+          <div class="concierge-card reveal">
+              <div class="concierge-text">
+                  <div class="badge">Personal Advisor</div>
+                  <h2>READY FOR THE<br/><span class="gradient-text">TEST?</span></h2>
+                  <p>Speak with one of our curators to schedule a private viewing or arrange global transport for this vehicle.</p>
+              </div>
+              <div class="concierge-form">
+                  <div class="cta-btns">
+                      <button class="btn btn-primary btn-full shadow-lg" id="footerInquiry">WhatsApp Us Now</button>
+                      <a href="index.html#concierge" class="btn btn-outline btn-full" style="margin-top: 20px;">Email Showroom</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Same as index.html -->
+    <div class="container footer-content">
+        <div class="footer-left">
+          <img src="logo.JPG" class="footer-logo" alt="Carquarium">
+          <p class="footer-desc">Premium used vehicles for the discerning driver. Elite performance, delivered worldwide.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Carquarium. All rights reserved.</p>
+        </div>
+      </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+      // Page specific logic to load data
+      document.addEventListener('DOMContentLoaded', () => {
+          const params = new URLSearchParams(window.location.search);
+          const vehicleId = params.get('id');
+          
+          if (typeof loadVehicleDetails === 'function') {
+              loadVehicleDetails(vehicleId);
+          }
+      });
+  </script>
+</body>
+</html>

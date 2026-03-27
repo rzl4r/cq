@@ -20,7 +20,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html#about">Story</a></li>
-        <li><a href="index.html#showroom">Showroom</a></li>
+        <li><a href="inventory.html">Showroom</a></li>
         <li><a href="index.html#pulse">The Pulse</a></li>
         <li><a href="index.html#concierge">Concierge</a></li>
       </ul>
@@ -49,35 +49,35 @@
       <aside class="filters-sidebar fade-up delay-3">
         <div class="filter-group">
           <h4>CLASSIFICATION</h4>
-          <label class="filter-label"><input type="checkbox" checked> All Vehicles</label>
-          <label class="filter-label"><input type="checkbox"> Exotic</label>
-          <label class="filter-label"><input type="checkbox"> Luxury</label>
-          <label class="filter-label"><input type="checkbox"> Sports / Track</label>
+          <label class="filter-label"><input type="checkbox" id="filter-all" checked> All Vehicles</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="class" data-filter="exotic"> Exotic</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="class" data-filter="luxury"> Luxury</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="class" data-filter="sports"> Sports / Track</label>
         </div>
         
         <div class="filter-group">
           <h4>BRAND</h4>
-          <label class="filter-label"><input type="checkbox"> Porsche</label>
-          <label class="filter-label"><input type="checkbox"> Ferrari</label>
-          <label class="filter-label"><input type="checkbox"> Lamborghini</label>
-          <label class="filter-label"><input type="checkbox"> McLaren</label>
-          <label class="filter-label"><input type="checkbox"> Bentley</label>
-          <label class="filter-label"><input type="checkbox"> Rolls-Royce</label>
-          <label class="filter-label"><input type="checkbox"> Aston Martin</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="porsche"> Porsche</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="ferrari"> Ferrari</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="lamborghini"> Lamborghini</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="mclaren"> McLaren</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="bentley"> Bentley</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="rolls-royce"> Rolls-Royce</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="brand" data-filter="aston-martin"> Aston Martin</label>
         </div>
 
         <div class="filter-group">
           <h4>YEAR</h4>
-          <label class="filter-label"><input type="checkbox"> 2023 - 2024</label>
-          <label class="filter-label"><input type="checkbox"> 2020 - 2022</label>
-          <label class="filter-label"><input type="checkbox"> Pre-2020 Classics</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="year" data-filter="2023-2024"> 2023 - 2024</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="year" data-filter="2020-2022"> 2020 - 2022</label>
+          <label class="filter-label"><input type="checkbox" class="inventory-filter" data-type="year" data-filter="classic"> Pre-2020 Classics</label>
         </div>
       </aside>
 
       <!-- Inventory Grid -->
       <div class="inventory-grid fade-up delay-4">
         
-        <article class="bento-card exotic">
+        <article class="bento-card exotic brand-porsche year-2023-2024" data-id="porsche-911-gt3-rs">
           <div class="card-bg" style="background: linear-gradient(45deg, #1a0a0a, #0a0a0a);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -94,7 +94,7 @@
           </div>
         </article>
 
-        <article class="bento-card luxury">
+        <article class="bento-card luxury brand-bentley year-2020-2022" data-id="bentley-continental-gt">
           <div class="card-bg" style="background: linear-gradient(45deg, #0a1a24, #0a0a0a);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -111,7 +111,7 @@
           </div>
         </article>
 
-        <article class="bento-card exotic">
+        <article class="bento-card exotic brand-mclaren year-2020-2022" data-id="mclaren-720s-spider">
           <div class="card-bg" style="background: linear-gradient(45deg, #2a1a05, #0a0a0a);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -128,7 +128,7 @@
           </div>
         </article>
 
-        <article class="bento-card exotic">
+        <article class="bento-card exotic brand-ferrari year-2023-2024" data-id="ferrari-f8-tributo">
           <div class="card-bg" style="background: linear-gradient(45deg, #2a0505, #0a0a0a);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -145,7 +145,7 @@
           </div>
         </article>
 
-        <article class="bento-card luxury">
+        <article class="bento-card luxury brand-rolls-royce year-2020-2022" data-id="rolls-royce-cullinan">
           <div class="card-bg" style="background: linear-gradient(45deg, #101010, #000000);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
@@ -162,7 +162,7 @@
           </div>
         </article>
 
-        <article class="bento-card exotic">
+        <article class="bento-card exotic brand-aston-martin year-2020-2022" data-id="aston-martin-vantage-f1">
           <div class="card-bg" style="background: linear-gradient(45deg, #0a2010, #0a0a0a);"></div>
           <div class="card-gradient"></div>
           <div class="card-content">
