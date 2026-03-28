@@ -442,4 +442,342 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1500);
     });
   }
+
+  // 7.1 Handle "Others" Brand Selection
+  const brandSelects = [
+    { select: document.getElementById('m-brand'), group: document.getElementById('m-custom-brand-group') },
+    { select: document.getElementById('ms-brand'), group: document.getElementById('ms-custom-brand-group') }
+  ];
+
+  brandSelects.forEach(item => {
+    if (item.select && item.group) {
+      item.select.addEventListener('change', () => {
+        if (item.select.value === 'others') {
+          item.group.classList.remove('hidden');
+        } else {
+          item.group.classList.add('hidden');
+        }
+      });
+    }
+  });
+
+  // 7.3 KM Slider Interaction
+  const sliders = [
+    { input: document.getElementById('m-km-slider'), display: document.getElementById('m-km-val') },
+    { input: document.getElementById('ms-km-slider'), display: document.getElementById('ms-km-val') }
+  ];
+
+  sliders.forEach(slider => {
+    if (slider.input && slider.display) {
+      slider.input.addEventListener('input', () => {
+        let val = parseInt(slider.input.value);
+        let displayVal = val.toLocaleString();
+        if (val >= 200000) {
+          displayVal = "200,000+";
+        }
+        slider.display.innerText = displayVal;
+      });
+    }
+  });
+
+  // 7.2 Handle "Below 2000" Year Selection
+  const yearSelects = [
+    { select: document.getElementById('m-year'), group: document.getElementById('m-specific-year-group') },
+    { select: document.getElementById('ms-year'), group: document.getElementById('ms-specific-year-group') }
+  ];
+
+  yearSelects.forEach(item => {
+    if (item.select && item.group) {
+      item.select.addEventListener('change', () => {
+        if (item.select.value === 'below-2000') {
+          item.group.classList.remove('hidden');
+        } else {
+          item.group.classList.add('hidden');
+        }
+      });
+    }
+  });
+
+  // 7. specialized lead generation Modal system
+  const enquiryModal = document.getElementById('enquiryModal');
+  const rentalModal = document.getElementById('rentalModal');
+  const transportModal = document.getElementById('transportModal');
+  const inspectionModal = document.getElementById('inspectionModal');
+  const enquiryTitle = document.getElementById('enquiryTitle');
+  const modalForm = document.getElementById('modalContactForm');
+  const rentalForm = document.getElementById('rentalContactForm');
+  const transportForm = document.getElementById('transportContactForm');
+  const inspectionForm = document.getElementById('inspectionContactForm');
+
+  const openModal = (modalId, carName = '') => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      if (modalId === 'enquiryModal' && enquiryTitle) {
+        enquiryTitle.innerHTML = `Enquiry for <br><span class="gradient-text">${carName || 'Specific Car'}</span>`;
+        const vehicleInput = document.getElementById('m-vehicle') || document.getElementById('ms-vehicle');
+        if (vehicleInput) vehicleInput.value = carName || '';
+      }
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeModal = (modal) => {
+    if (modal) {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Close icons logic
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeModal(enquiryModal);
+      closeModal(rentalModal);
+      closeModal(transportModal);
+      closeModal(inspectionModal);
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === enquiryModal) closeModal(enquiryModal);
+    if (e.target === rentalModal) closeModal(rentalModal);
+    if (e.target === transportModal) closeModal(transportModal);
+    if (e.target === inspectionModal) closeModal(inspectionModal);
+  });
+
+  // Global trigger listener
+  document.addEventListener('click', (e) => {
+    const eTrigger = e.target.closest('.enquiry-trigger');
+    const rTrigger = e.target.closest('.rental-trigger');
+    const tTrigger = e.target.closest('.transport-trigger');
+    const iTrigger = e.target.closest('.inspection-trigger');
+
+    if (eTrigger) {
+      e.preventDefault();
+      const carName = eTrigger.getAttribute('data-car');
+      openModal('enquiryModal', carName);
+    }
+    if (rTrigger) {
+      e.preventDefault();
+      openModal('rentalModal');
+    }
+    if (tTrigger) {
+      e.preventDefault();
+      openModal('transportModal');
+    }
+    if (iTrigger) {
+      e.preventDefault();
+      openModal('inspectionModal');
+    }
+  });
+
+  // Lead Distribution (Randomize WhatsApp Numbers)
+  const whatsappNumbers = ['919037360370', '919562147077'];
+
+  // 1. Vehicle Purchase Enquiry
+  if (modalForm) {
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = modalForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+
+      const getVal = (id) => {
+        const el = document.getElementById(id) || document.getElementById('ms-' + id.substring(2)) || document.getElementById('ms-' + id.substring(0));
+        return el ? el.value : '';
+      };
+
+      const name = getVal('m-name');
+      const email = getVal('m-email');
+      const brand = getVal('m-custom-brand') || getVal('m-brand') || getVal('ms-brand');
+      const model = getVal('m-model') || getVal('ms-model');
+      const price = getVal('m-price') || getVal('ms-price');
+      const year = getVal('m-specific-year') || getVal('ms-specific-year') || getVal('m-year') || getVal('ms-year');
+      const km = (document.getElementById('m-km-slider') || document.getElementById('ms-km-slider'))?.value || '';
+      const owners = getVal('m-owners') || getVal('ms-owners');
+      const trans = getVal('m-trans') || getVal('ms-trans');
+      const fuel = getVal('m-fuel') || getVal('ms-fuel');
+      const msgText = (document.getElementById('m-message') || document.getElementById('ms-message'))?.value || '';
+
+      let waMessage = `*NEW ENQUIRY FROM CARQUARIUM*%0A`;
+      waMessage += `*Name:* ${name}%0A`;
+      waMessage += `*Email:* ${email}%0A`;
+      waMessage += `*Brand:* ${brand}%0A`;
+      waMessage += `*Model:* ${model}%0A`;
+      waMessage += `*Budget:* ${price}%0A`;
+      waMessage += `*Year:* ${year}%0A`;
+      waMessage += `*Distance:* ${km} KM%0A`;
+      waMessage += `*Owners:* ${owners}%0A`;
+      waMessage += `*Transmission:* ${trans}%0A`;
+      waMessage += `*Fuel:* ${fuel}%0A`;
+      waMessage += `*(Detailed specs requested in chat)*%0A`;
+      waMessage += `*Note:* ${msgText}`;
+
+      const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
+      const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Success!';
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+          closeModal(enquiryModal);
+          modalForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1200);
+      }, 1500);
+    });
+  }
+
+  // 2. Vehicle Hire (Rental)
+  if (rentalForm) {
+    rentalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = rentalForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+
+      const name = document.getElementById('r-name').value;
+      const phone = document.getElementById('r-phone').value;
+      const rcFile = document.getElementById('r-rc').value ? "(RC Copy Uploaded)" : "(Sends Photo Independently)";
+
+      let waMessage = `*VEHICLE HIRE ENQUIRY*%0A`;
+      waMessage += `*Name:* ${name}%0A`;
+      waMessage += `*Phone:* ${phone}%0A`;
+      waMessage += `*RC Status:* ${rcFile}%0A`;
+      waMessage += `Hello, I'm interested in renting a luxury vehicle. Please share options and availability.`;
+
+      const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
+      const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Request Sent!';
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+          closeModal(rentalModal);
+          rentalForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1200);
+      }, 1500);
+    });
+  }
+
+  // 3. Logistics (Transportation)
+  if (transportForm) {
+    // Handle "Others" Transport Type Selection
+    const tTypeSelect = document.getElementById('t-type');
+    const tCustomGroup = document.getElementById('t-custom-type-group');
+    if (tTypeSelect && tCustomGroup) {
+      tTypeSelect.addEventListener('change', () => {
+        if (tTypeSelect.value === 'others') {
+          tCustomGroup.classList.remove('hidden');
+        } else {
+          tCustomGroup.classList.add('hidden');
+        }
+      });
+    }
+
+    transportForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = transportForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Calculating...';
+      submitBtn.disabled = true;
+
+      const name = document.getElementById('t-name').value;
+      const phone = document.getElementById('t-phone').value;
+      const tFrom = document.getElementById('t-from').value;
+      const tTo = document.getElementById('t-to').value;
+      const tType = document.getElementById('t-custom-type')?.value || document.getElementById('t-type').value;
+
+      let waMessage = `*TRANSPORTATION QUOTE REQUEST*%0A`;
+      waMessage += `*Name:* ${name}%0A`;
+      waMessage += `*Phone:* ${phone}%0A`;
+      waMessage += `*Route:* ${tFrom} TO ${tTo}%0A`;
+      waMessage += `*Vehicle Type:* ${tType}%0A`;
+      waMessage += `Hello, I need a quote for transporting my vehicle. Please advise on price and schedule.`;
+
+      const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
+      const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Quote Requested!';
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+          closeModal(transportModal);
+          transportForm.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1200);
+      }, 1500);
+    });
+  }
+
+  // Handle "Others" Inspection Type Reveal
+  const iOthersCheck = document.getElementById('i-others-check');
+  const iCustomGroup = document.getElementById('i-custom-type-group');
+  if (iOthersCheck && iCustomGroup) {
+    iOthersCheck.addEventListener('change', () => {
+      if (iOthersCheck.checked) {
+        iCustomGroup.classList.remove('hidden');
+      } else {
+        iCustomGroup.classList.add('hidden');
+      }
+    });
+  }
+
+  // 4. Expert Assessment (Inspection)
+  if (inspectionForm) {
+    inspectionForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = inspectionForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Booking...';
+      submitBtn.disabled = true;
+
+      const name = document.getElementById('i-name').value;
+      const phone = document.getElementById('i-phone').value;
+      const iBrand = document.getElementById('i-brand').value;
+      const iModel = document.getElementById('i-model').value;
+      
+      // Multi-select collection
+      let checkedTypes = Array.from(inspectionForm.querySelectorAll('input[name="i-type"]:checked'))
+        .map(cb => cb.value)
+        .filter(v => v !== 'others'); // Remove the marker 'others'
+      
+      // Add custom type if checked
+      if (iOthersCheck && iOthersCheck.checked) {
+        const customVal = document.getElementById('i-custom-type')?.value;
+        if (customVal) checkedTypes.push(customVal);
+      }
+      
+      const iType = checkedTypes.length > 0 ? checkedTypes.join(', ') : 'General Inspection';
+
+      let waMessage = `*VEHICLE INSPECTION BOOKING*%0A`;
+      waMessage += `*Name:* ${name}%0A`;
+      waMessage += `*Phone:* ${phone}%0A`;
+      waMessage += `*Vehicle:* ${iBrand} / ${iModel}%0A`;
+      waMessage += `*Assessment Types:* ${iType}%0A`;
+      waMessage += `Hello, I'd like to book a professional technical appraisal covering these areas.`;
+
+      const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
+      const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Booking Confirmed!';
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+          closeModal(inspectionModal);
+          inspectionForm.reset();
+          if (iCustomGroup) iCustomGroup.classList.add('hidden'); // Reset custom field visibility
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1200);
+      }, 1500);
+    });
+  }
 });

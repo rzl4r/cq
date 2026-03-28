@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carquarium | Elite Automotive Showroom</title>
+  <title>Services | Carquarium — Elite Automotive Solutions</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,15 @@
   <!-- Floating Navbar -->
   <nav class="navbar drop-in" id="navbar">
     <div class="nav-pill">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <img src="logo.JPG" alt="Carquarium" class="logo-img" />
       </a>
       <ul class="nav-links">
-        <li><a href="#about">Story</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="#concierge">Contact</a></li>
+        <li><a href="index.html#concierge">Contact</a></li>
       </ul>
-      <!-- <a href="#concierge" class="btn btn-outline nav-cta">Book Viewing</a> -->
+      <!-- <a href="index.html#concierge" class="btn btn-outline nav-cta">Book Viewing</a> -->
 
       <button class="menu-btn" id="menu-btn">
         <span></span><span></span>
@@ -35,135 +35,103 @@
     </div>
   </nav>
 
-  <!-- Dynamic Hero -->
-  <header class="hero" id="hero">
+  <!-- Services Hero -->
+  <header class="services-hero">
     <div class="hero-bg">
       <div class="glow-orb red"></div>
       <div class="glow-orb silver"></div>
       <div class="grid-overlay"></div>
     </div>
 
-    <div class="hero-content container">
-      <div class="hero-text">
-        <div class="badge fade-up"><span class="dot"></span> Kerala,India</div>
-        <h1 class="fade-up delay-1">
-          <span class="outline-text">DRIVE</span><br />
-          THE<br />
-          <span class="gradient-text">EXCEPTIONAL.</span>
-        </h1>
-        <p class="fade-up delay-2">Unleashing 2 years of automotive excellence. We don't just sell cars; we curate
-          breathtaking performance and uncompromised luxury.</p>
-        <div class="hero-actions fade-up delay-3">
-          <a href="services.html" class="btn btn-primary btn-lg">Our Services</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-prompt fade-up delay-5">
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
+    <div class="container services-header-content reveal">
+      <div class="badge fade-up"><span class="dot"></span> Our Expertise</div>
+      <h1 class="fade-up delay-1">
+        Our<br />
+        <span class="gradient-text">SERVICES.</span>
+      </h1>
+      <p class="fade-up delay-2">Includes A-to-Z about the cars, with pdfs ,voice recordings .</p>
     </div>
   </header>
 
-  <div class="brand-showcase section-dark">
-    <div class="container center-content">
-      <img src="logo.JPG" alt="Carquarium" class="showcase-logo" />
-    </div>
-  </div>
+  <!-- Column Stack Services Container -->
+  <section class="section services-stack-section">
+    <div class="container container-stack">
+      <div class="services-column-stack">
 
-  <!-- About Section -->
-  <section class="section about-story" id="about">
-    <div class="container about-grid">
-      <div class="about-visual reveal">
-        <div class="visual-gradient-box"></div>
-        <div class="visual-accent-line"></div>
-      </div>
-      <div class="about-content reveal">
-        <div class="badge">Our Story</div>
-        <h2>BEYOND<br />THE<br /><span class="gradient-text">MACHINE.</span></h2>
-        <p class="lead-text">Established in 2024 in the heart of Kerala, Carquarium was born from a singular
-          obsession: to redefine the acquisition of elite automobiles.</p>
-        <p>We are more than a dealership. We are enthusiasts, curators, and matchmakers for the world's most
-          breathtaking engineering. Every vehicle in our stable represents the pinnacle of performance and design,
-          painstakingly inspected to meet our uncompromising standards.</p>
-        <div class="about-stats-row">
-          <div class="a-stat"><strong>100+</strong><br /> Clients</div>
-          <!-- <div class="a-stat"><strong>40+</strong><br />Countries Served</div> -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- The Pulse (Bento Features) -->
-  <section class="section pulse section-dark" id="pulse">
-    <div class="bg-typography">PULSE</div>
-    <div class="container">
-      <div class="bento-features">
-        <div class="feature-box primary reveal">
-          <div class="feat-icon">01</div>
-          <h3>Obsessive Curation</h3>
-          <p>We reject 90% of the vehicles offered to us. If it sits in the Carquarium showroom, it is mechanically
-            pure, cosmetically flawless, and carries an impeccable pedigree.</p>
-        </div>
-
-        <div class="feature-box secondary reveal">
-          <div class="feat-icon">02</div>
-          <h3>Global Delivery</h3>
-          <p>Enclosed, insured, white-glove transport to your driveway, anywhere on earth.</p>
-        </div>
-
-        <div class="feature-box secondary dark reveal">
-          <div class="feat-icon">03</div>
-          <h3>Tailored Finance</h3>
-          <p>Bespoke leasing and financing tailored for ultra-high-net-worth clients.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section (Contact Block) -->
-  <section class="section concierge" id="concierge">
-    <div class="container">
-      <div class="concierge-card reveal">
-        <div class="concierge-text">
-          <div class="badge">Contact Us</div>
-          <h2>ACQUIRE YOUR<br /><span class="gradient-text">NEXT ICON.</span></h2>
-          <p>Our automotive advisors are on standby to discuss acquisitions, trade-ins, or to source the exact
-            specification you desire.</p>
-          <div class="contact-methods">
-            <div class="c-method">
-              <strong>CALL</strong><br />+91 90373 60370 <br />+91 95621 47077
-
+        <!-- Service Box 1: Vehicle Purchase -->
+        <article class="service-column reveal" style="--bg-url: url('luxury_car_purchase_png_1774723880791.png')">
+          <div class="service-bg"></div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <div class="service-header">
+              <div class="service-icon">01</div>
+              <h3>Vehicle<br />Purchase</h3>
+            </div>
+            <p>A seamless acquisition experience for curated performance and luxury icons. We manage everything from
+              inspection to title transfer.</p>
+            <div class="service-footer">
+              <button class="btn btn-outline enquiry-trigger" data-car="Acquisition">For Enquiries <span
+                  class="arrow">&rarr;</span></button>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="concierge-form">
-          <form id="contactForm">
-            <div class="input-group">
-              <input type="text" id="name" required placeholder=" " />
-              <label for="name">Full Name</label>
+        <!-- Service Box 2: Vehicle Hire -->
+        <article class="service-column reveal" style="--bg-url: url('luxury_car_rental_png_1774723923637.png')">
+          <div class="service-bg"></div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <div class="service-header">
+              <div class="service-icon">02</div>
+              <h3>Service<br />History</h3>
             </div>
-            <div class="input-group">
-              <input type="email" id="email" required placeholder=" " />
-              <label for="email">Email Address</label>
+            <p>Access the world's finest engineering for temporary journeys that demand excellence and uncompromising
+              performance.</p>
+            <div class="service-footer">
+              <button class="btn btn-outline rental-trigger">Explore Rental Stable <span
+                  class="arrow">&rarr;</span></button>
             </div>
-            <div class="input-group">
-              <select id="interest" required>
-                <option value="" disabled selected>Area of Interest</option>
-                <option value="buy">Acquire a Vehicle</option>
-                <option value="sell">Sell/Trade my Vehicle</option>
-                <option value="source">Source a specific car</option>
-              </select>
+          </div>
+        </article>
+
+        <!-- Service Box 3: Vehicle Inspection -->
+        <article class="service-column reveal"
+          style="--bg-url: url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&q=80')">
+          <div class="service-bg"></div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <div class="service-header">
+              <div class="service-icon">03</div>
+              <h3>Vehicle<br />Inspection</h3>
             </div>
-            <button type="submit" class="btn btn-primary btn-full">Submit Inquiry <span
-                class="arrow">&rarr;</span></button>
-            <div id="formSuccess" class="form-status">Message received. We will contact you shortly.</div>
-          </form>
-        </div>
+            <p>Meticulous point-by-point technical assessments and pedigree validation by our factory-trained master
+              technicians.</p>
+            <div class="service-footer">
+              <button class="btn btn-outline inspection-trigger">Book Inspection <span
+                  class="arrow">&rarr;</span></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service Box 4: Transportation -->
+        <article class="service-column reveal"
+          style="--bg-url: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80')">
+          <div class="service-bg"></div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <div class="service-header">
+              <div class="service-icon">04</div>
+              <h3>Transportation</h3>
+            </div>
+            <p>Secure, white-glove global delivery via climate-controlled enclaves, ensuring your asset arrives in
+              showroom condition.</p>
+            <div class="service-footer">
+              <button class="btn btn-outline transport-trigger">Get Shipping Quote <span
+                  class="arrow">&rarr;</span></button>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -186,7 +154,7 @@
         </div>
         <div class="link-col">
           <h4>Brand</h4>
-          <a href="#">Our Story</a>
+          <a href="index.html#about">Our Story</a>
           <a href="#">Press</a>
           <a href="#">Careers</a>
         </div>
@@ -208,7 +176,8 @@
       <div class="badge">Vehicle Inspection</div>
       <h2 class="modal-title">Expert <br><span class="gradient-text">Assessment</span></h2>
       <p>Schedule a professional evaluation by our factory-trained technicians.</p>
-      
+      <p>Inspection charges starts from Rs.1000</p>
+
       <form id="inspectionContactForm" class="modal-form">
         <div class="input-row">
           <div class="input-group">
@@ -263,7 +232,8 @@
           <input type="text" id="i-custom-type" placeholder=" " />
           <label for="i-custom-type">Specify Additional Checks</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Book Inspection <span class="arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary btn-full">Book Inspection <span
+            class="arrow">&rarr;</span></button>
       </form>
     </div>
   </div>
@@ -275,7 +245,9 @@
       <div class="badge">Transportation</div>
       <h2 class="modal-title">Transport <br><span class="gradient-text">Quote</span></h2>
       <p>Please provide the route and vehicle type for an accurate shipping estimation.</p>
-      
+      <p>Transportion within 10 days all over India</p>
+      <p>Transport charges are applicable</p>
+
       <form id="transportContactForm" class="modal-form">
         <div class="input-row">
           <div class="input-group">
@@ -312,7 +284,8 @@
           <input type="text" id="t-custom-type" placeholder=" " />
           <label for="t-custom-type">Specify Vehicle Type</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Get Shipping Quote <span class="arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary btn-full">Get Shipping Quote <span
+            class="arrow">&rarr;</span></button>
       </form>
     </div>
   </div>
@@ -324,7 +297,9 @@
       <div class="badge">Vehicle Hire</div>
       <h2 class="modal-title">Rental <br><span class="gradient-text">Enquiry</span></h2>
       <p>Please provide your basic details and a copy of your RC for verification.</p>
-      
+      <p>Regular Brand-Rs.500</p>
+      <p>Premium Brand-Rs.2000+</p>
+
       <form id="rentalContactForm" class="modal-form">
         <div class="input-group">
           <input type="text" id="r-name" required placeholder=" " />
@@ -338,7 +313,8 @@
           <input type="file" id="r-rc" accept="image/*" />
           <label for="r-rc" class="file-label">Upload RC Copy (Photo)</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Submit Rental Request <span class="arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary btn-full">Submit Rental Request <span
+            class="arrow">&rarr;</span></button>
       </form>
     </div>
   </div>
@@ -350,7 +326,7 @@
       <div class="badge">Private Enquiry</div>
       <h2 class="modal-title" id="enquiryTitle">Enquiry for <br><span class="gradient-text">Specific Car</span></h2>
       <p>Our automotive advisors will review your request and contact you with a bespoke offer.</p>
-      
+
       <form id="modalContactForm" class="modal-form">
         <div class="input-row">
           <div class="input-group">
@@ -365,7 +341,7 @@
 
         <div class="modal-filter-grid">
           <div class="input-group">
-            <select id="m-brand" required>
+            <select id="ms-brand" required>
               <option value="" disabled selected></option>
               <option value="toyota">Toyota</option>
               <option value="maruti-suzuki">Maruti-Suzuki</option>
@@ -374,22 +350,23 @@
               <option value="mahindra">Mahindra</option>
               <option value="others">Others</option>
             </select>
-            <label for="m-brand">Brand</label>
+            <label for="ms-brand">Brand</label>
           </div>
-          <div class="input-group hidden" id="m-custom-brand-group">
-            <input type="text" id="m-custom-brand" placeholder=" " />
-            <label for="m-custom-brand">Specify Brand Name</label>
-          </div>
-          <div class="input-group">
-            <input type="text" id="m-model" placeholder=" " />
-            <label for="m-model">Model / Variant</label>
+          <div class="input-group hidden" id="ms-custom-brand-group">
+            <input type="text" id="ms-custom-brand" placeholder=" " />
+            <label for="ms-custom-brand">Specify Brand Name</label>
           </div>
           <div class="input-group">
-            <input type="text" id="m-price" placeholder=" " />
-            <label for="m-price">Price Range</label>
+            <input type="text" id="ms-model" placeholder=" " />
+            <label for="ms-model">Model / Variant
+              (Ex:Innova Crysta 2.4 ZX)</label>
           </div>
           <div class="input-group">
-            <select id="m-year" required>
+            <input type="text" id="ms-price" placeholder=" " />
+            <label for="ms-price">Price Range</label>
+          </div>
+          <div class="input-group">
+            <select id="ms-year" required>
               <option value="" disabled selected></option>
               <option value="2026">2026 (Present)</option>
               <option value="2025">2025</option>
@@ -420,42 +397,45 @@
               <option value="2000">2000</option>
               <option value="below-2000">Below 2000</option>
             </select>
-            <label for="m-year">Min Year</label>
+            <label for="ms-year">Min Year</label>
           </div>
-          <div class="input-group hidden" id="m-specific-year-group">
-            <input type="number" id="m-specific-year" placeholder=" " />
-            <label for="m-specific-year">Specific Year (Classic)</label>
+          <div class="input-group hidden" id="ms-specific-year-group">
+            <input type="number" id="ms-specific-year" placeholder=" " />
+            <label for="ms-specific-year">Specific Year (Classic)</label>
           </div>
           <div class="input-group full-width slider-group">
-            <label class="slider-label">Max Distance: <span id="m-km-val">100,000</span> KM</label>
-            <input type="range" id="m-km-slider" min="0" max="200000" step="5000" value="100000" class="premium-slider">
+            <label class="slider-label">Max KM Driven: <span id="ms-km-val">100,000</span> KM</label>
+            <input type="range" id="ms-km-slider" min="0" max="200000" step="5000" value="100000"
+              class="premium-slider">
           </div>
           <div class="input-group">
-            <select id="m-owners" required>
+            <select id="ms-owners" required>
               <option value="" disabled selected></option>
               <option value="1">1st Owner</option>
               <option value="2">2nd Owner</option>
-              <option value="3+">3rd owner +</option>
+              <option value="3">3rd owner</option>
+              <option value="4+">4th owner+</option>
             </select>
-            <label for="m-owners">Ownership</label>
+            <label for="ms-owners">Ownership</label>
           </div>
           <div class="input-group">
-            <select id="m-trans" required>
+            <select id="ms-trans" required>
               <option value="" disabled selected></option>
               <option value="auto">Automatic</option>
               <option value="manual">Manual</option>
             </select>
-            <label for="m-trans">Transmission</label>
+            <label for="ms-trans">Transmission</label>
           </div>
           <div class="input-group">
-            <select id="m-fuel" required>
+            <select id="ms-fuel" required>
               <option value="" disabled selected></option>
               <option value="petrol">Petrol</option>
               <option value="diesel">Diesel</option>
               <option value="hybrid">Hybrid</option>
+              <option value="cng">CNG</option>
               <option value="ev">Electric</option>
             </select>
-            <label for="m-fuel">Fuel Type</label>
+            <label for="ms-fuel">Fuel Type</label>
           </div>
         </div>
 
@@ -463,7 +443,7 @@
           <textarea id="m-message" placeholder=" "></textarea>
           <label for="m-message">Additional Requirements</label>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Submit Inquiry <span class="arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary btn-full">Submit Enquiry <span class="arrow">&rarr;</span></button>
       </form>
     </div>
   </div>
