@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       model: '911 GT3 RS',
       type: 'EXOTIC',
       price: '$285,000',
-      specs: { hp: '518', speed: '184 MPH', accel: '3.0s', year: '2023', engine: '4.0L Flat-6' },
+      specs: { ownership: 'First owner', km: '12,500 km', fuel: 'Petrol', year: '2023', transmission: 'Automatic' },
       description: 'The 911 GT3 RS is a street-legal track masterwork. With its massive swan-neck rear wing and advanced aerodynamics, it generates staggering downforce, turning every corner into a feat of physics.',
       features: [
         { icon: '01', title: 'DRS System', text: 'First-ever street Porsche with Drag Reduction System.' },
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       model: 'Continental GT',
       type: 'LUXURY',
       price: '$205,000',
-      specs: { hp: '542', speed: '198 MPH', accel: '3.9s', year: '2022', engine: '4.0L V8 Twin-Turbo' },
+      specs: { ownership: 'First owner', km: '22,000 km', fuel: 'Petrol', year: '2022', transmission: 'Automatic' },
       description: 'The definitive Grand Tourer. The Bentley Continental GT combined handcrafted luxury with effortless performance, creating a driving experience that is as serene as it is powerful.',
       features: [
         { icon: '01', title: 'Diamond Quilting', text: 'Hand-stitched interior with over 310,000 stitches.' },
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         model: '720S Spider',
         type: 'EXOTIC',
         price: '$299,500',
-        specs: { hp: '710', speed: '212 MPH', accel: '2.8s', year: '2021', engine: '4.0L V8 Twin-Turbo' },
+        specs: { ownership: 'Single owner', km: '8,500 km', fuel: 'Petrol', year: '2021', transmission: 'Automatic' },
         description: 'McLaren’s supercar for the open air. Light, fast, and engineered with a carbon fiber Monocage II-S, it offers the purity of a coupe with the thrill of a convertible.',
         features: [
             { icon: '01', title: 'Monocage II-S', text: 'Ultra-stiff carbon chassis for unmatched handling.' },
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         model: 'F8 Tributo',
         type: 'EXOTIC',
         price: '$345,000',
-        specs: { hp: '710', speed: '211 MPH', accel: '2.9s', year: '2023', engine: '3.9L V8 Twin-Turbo' },
+        specs: { ownership: 'First owner', km: '12,000 km', fuel: 'Petrol', year: '2023', transmission: 'Automatic' },
         description: 'The F8 Tributo is the pinnacle of Ferrari’s mid-rear-engined V8 sportscars. It pays homage to the most powerful V8 in Ferrari history, delivering explosive performance.',
         features: [
             { icon: '01', title: 'S-Duct', text: 'F1-inspired aero for 15% more downforce than its predecessor.' },
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         model: 'Cullinan',
         type: 'LUXURY',
         price: '$390,000',
-        specs: { hp: '563', speed: '155 MPH', accel: '4.8s', year: '2021', engine: '6.75L V12 Twin-Turbo' },
+        specs: { ownership: 'First owner', km: '15,000 km', fuel: 'Petrol', year: '2021', transmission: 'Automatic' },
         description: 'The Cullinan is the first all-terrain SUV from Rolls-Royce. It makes luxury travel "Effortless, Everywhere," conquering any path with the legendary Magic Carpet Ride.',
         features: [
             { icon: '01', title: 'Magic Carpet Ride', text: 'Self-leveling air suspension for ultimate smoothness.' },
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         model: 'Vantage F1',
         type: 'EXOTIC',
         price: '$155,000',
-        specs: { hp: '527', speed: '190 MPH', accel: '3.5s', year: '2022', engine: '4.0L V8 Twin-Turbo' },
+        specs: { ownership: 'First owner', km: '18,000 km', fuel: 'Petrol', year: '2022', transmission: 'Automatic' },
         description: 'The Vantage F1 Edition is a track-focused beast inspired by the Official Safety Car of Formula 1. It offers enhanced power, unique chassis tuning, and high-downforce aero.',
         features: [
             { icon: '01', title: 'Aero Kit', text: 'Racing-derived wing and splitter for 200kg of downforce.' },
@@ -107,11 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('descriptionText').textContent = car.description;
     
     // Update Specs
-    document.getElementById('specHP').textContent = car.specs.hp;
-    document.getElementById('specSpeed').textContent = car.specs.speed;
-    document.getElementById('specAccel').textContent = car.specs.accel;
-    document.getElementById('specYear').textContent = car.specs.year;
-    document.getElementById('specEng').textContent = car.specs.engine;
+    const specOwnership = document.getElementById('specOwnership') || document.getElementById('specHP');
+    const specKM = document.getElementById('specKM') || document.getElementById('specSpeed');
+    const specFuel = document.getElementById('specFuel') || document.getElementById('specAccel');
+    const specYear = document.getElementById('specYear');
+    const specTrans = document.getElementById('specTrans') || document.getElementById('specEng');
+
+    if (specOwnership) specOwnership.textContent = car.specs.ownership;
+    if (specKM) specKM.textContent = car.specs.km;
+    if (specFuel) specFuel.textContent = car.specs.fuel;
+    if (specYear) specYear.textContent = car.specs.year;
+    if (specTrans) specTrans.textContent = car.specs.transmission;
 
     // Update Background
     const heroBg = document.getElementById('heroBg');
