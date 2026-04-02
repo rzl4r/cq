@@ -192,8 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealElements = document.querySelectorAll('.reveal');
 
   const revealOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.2,
+    rootMargin: "0px 0px -100px 0px"
   };
 
   const revealObserver = new IntersectionObserver(function (entries, observer) {
@@ -579,6 +579,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalForm) {
     modalForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (localStorage.getItem('enquirySubmitted')) {
+        alert('You have already submitted an enquiry. We will contact you shortly.');
+        return;
+      }
+
       const submitBtn = modalForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Sending...';
@@ -624,6 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
           window.open(waUrl, '_blank');
           closeModal(enquiryModal);
           modalForm.reset();
+          localStorage.setItem('enquirySubmitted', 'true');
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
         }, 1200);
