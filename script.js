@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const submitBtn = modalForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Sending...';
+      submitBtn.innerHTML = 'Opening WhatsApp...';
       submitBtn.disabled = true;
 
       const getVal = (id) => {
@@ -624,17 +624,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
       const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
 
+      // Open WhatsApp directly - works on mobile
+      const opened = window.open(waUrl, '_blank');
+
+      submitBtn.innerHTML = 'Success!';
+      localStorage.setItem('enquirySubmitted', 'true');
+      closeModal(enquiryModal);
+      modalForm.reset();
+
+      // If popup was blocked, show fallback message
+      if (!opened) {
+        const fallback = confirm('WhatsApp did not open automatically. Click OK to copy the WhatsApp link, or Cancel to see the link.');
+        if (fallback) {
+          navigator.clipboard.writeText(waUrl).then(() => {
+            alert('WhatsApp link copied! Open WhatsApp manually.');
+          });
+        }
+      }
+
       setTimeout(() => {
-        submitBtn.innerHTML = 'Success!';
-        setTimeout(() => {
-          window.open(waUrl, '_blank');
-          closeModal(enquiryModal);
-          modalForm.reset();
-          localStorage.setItem('enquirySubmitted', 'true');
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 1200);
-      }, 1500);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 2000);
     });
   }
 
@@ -644,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const submitBtn = rentalForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Sending...';
+      submitBtn.innerHTML = 'Opening WhatsApp...';
       submitBtn.disabled = true;
 
       const name = document.getElementById('r-name').value;
@@ -660,16 +671,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
       const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
 
+      // Open WhatsApp directly - works on mobile
+      window.open(waUrl, '_blank');
+
+      submitBtn.innerHTML = 'Request Sent!';
+      closeModal(rentalModal);
+      rentalForm.reset();
+
       setTimeout(() => {
-        submitBtn.innerHTML = 'Request Sent!';
-        setTimeout(() => {
-          window.open(waUrl, '_blank');
-          closeModal(rentalModal);
-          rentalForm.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 1200);
-      }, 1500);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 2000);
     });
   }
 
@@ -692,7 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const submitBtn = transportForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Calculating...';
+      submitBtn.innerHTML = 'Opening WhatsApp...';
       submitBtn.disabled = true;
 
       const name = document.getElementById('t-name').value;
@@ -711,16 +723,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
       const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
 
+      // Open WhatsApp directly - works on mobile
+      window.open(waUrl, '_blank');
+
+      submitBtn.innerHTML = 'Quote Requested!';
+      closeModal(transportModal);
+      transportForm.reset();
+
       setTimeout(() => {
-        submitBtn.innerHTML = 'Quote Requested!';
-        setTimeout(() => {
-          window.open(waUrl, '_blank');
-          closeModal(transportModal);
-          transportForm.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 1200);
-      }, 1500);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 2000);
     });
   }
 
@@ -743,25 +756,25 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const submitBtn = inspectionForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Booking...';
+      submitBtn.innerHTML = 'Opening WhatsApp...';
       submitBtn.disabled = true;
 
       const name = document.getElementById('i-name').value;
       const phone = document.getElementById('i-phone').value;
       const iBrand = document.getElementById('i-brand').value;
       const iModel = document.getElementById('i-model').value;
-      
+
       // Multi-select collection
       let checkedTypes = Array.from(inspectionForm.querySelectorAll('input[name="i-type"]:checked'))
         .map(cb => cb.value)
         .filter(v => v !== 'others'); // Remove the marker 'others'
-      
+
       // Add custom type if checked
       if (iOthersCheck && iOthersCheck.checked) {
         const customVal = document.getElementById('i-custom-type')?.value;
         if (customVal) checkedTypes.push(customVal);
       }
-      
+
       const iType = checkedTypes.length > 0 ? checkedTypes.join(', ') : 'General Inspection';
 
       let waMessage = `*VEHICLE INSPECTION BOOKING*%0A`;
@@ -774,17 +787,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const randomNum = whatsappNumbers[Math.floor(Math.random() * whatsappNumbers.length)];
       const waUrl = `https://wa.me/${randomNum}?text=${waMessage}`;
 
+      // Open WhatsApp directly - works on mobile
+      window.open(waUrl, '_blank');
+
+      submitBtn.innerHTML = 'Booking Confirmed!';
+      closeModal(inspectionModal);
+      inspectionForm.reset();
+      if (iCustomGroup) iCustomGroup.classList.add('hidden'); // Reset custom field visibility
+
       setTimeout(() => {
-        submitBtn.innerHTML = 'Booking Confirmed!';
-        setTimeout(() => {
-          window.open(waUrl, '_blank');
-          closeModal(inspectionModal);
-          inspectionForm.reset();
-          if (iCustomGroup) iCustomGroup.classList.add('hidden'); // Reset custom field visibility
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 1200);
-      }, 1500);
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 2000);
     });
   }
 });
