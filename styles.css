@@ -2493,12 +2493,38 @@ ul {
   .service-content {
     text-align: left !important;
     align-items: flex-start !important;
-    padding: 2.5rem;
+    padding: 2rem 2rem 2.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .service-header {
     flex-direction: row !important;
-    gap: 1.5rem;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .service-column h3 {
+    font-size: clamp(1.1rem, 5.5vw, 1.8rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .service-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .service-column p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-footer .btn {
+    padding: 14px 24px;
+    font-size: 0.68rem;
   }
 }
 
