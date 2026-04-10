@@ -2834,6 +2834,13 @@ select {
   }
 }
 
+/* ——— MOBILE: Fix background-attachment: fixed (unsupported on iOS Safari) ——— */
+@media (max-width: 1024px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* Landscape Mode Optimization */
 @media (orientation: landscape) and (max-height: 600px) {
   .modal-content {
