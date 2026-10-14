@@ -3,7 +3,7 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Data Store: Vehicle Profiles
+
   const vehicleData = {
     'porsche-911-gt3-rs': {
       brand: 'PORSCHE',
